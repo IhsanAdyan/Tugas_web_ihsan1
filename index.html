@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ihsan Adyan | Student Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #080d1c;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+header {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,13,28,0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #60a5fa;
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 10% 70px;
+    gap: 40px;
+    background:
+    radial-gradient(circle at 80% 30%, #253b77 0%, transparent 35%),
+    radial-gradient(circle at 10% 80%, #321d65 0%, transparent 30%);
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.label {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 30px;
+    background: rgba(59,130,246,.15);
+    color: #60a5fa;
+    border: 1px solid rgba(96,165,250,.3);
+    margin-bottom: 25px;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,#60a5fa,#c084fc);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #aab6ca;
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(90deg,#2563eb,#9333ea);
+    padding: 14px 27px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+    box-shadow: 0 5px 25px rgba(59,130,246,.25);
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(147,51,234,.4);
+}
+
+/* PROFILE CARD */
+.profile {
+    width: 310px;
+    padding: 35px;
+    text-align: center;
+    border-radius: 25px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 50px rgba(0,0,0,.3);
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    margin: auto auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    font-weight: bold;
+    background: linear-gradient(135deg,#2563eb,#9333ea);
+    border: 4px solid rgba(255,255,255,.2);
+}
+
+.profile h2 {
+    margin-bottom: 8px;
+}
+
+.profile p {
+    font-size: 13px;
+    color: #aab6ca;
+}
+
+/* SECTION */
+section {
+    padding: 90px 10%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.section-desc {
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+/* ABOUT */
+.about-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.09);
+    padding: 35px;
+    border-radius: 20px;
+    line-height: 1.9;
+    color: #b8c4d8;
+    transition: .3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    border-color: #60a5fa;
+}
+
+.about-card p {
+    margin-bottom: 15px;
+}
+
+/* INFORMATION */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.info-card {
+    background: #111b31;
+    border: 1px solid rgba(255,255,255,.08);
+    padding: 30px 20px;
+    border-radius: 18px;
+    text-align: center;
+    transition: .3s;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    background: #172847;
+}
+
+.info-card .icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+    color: #60a5fa;
+}
+
+.info-card p {
+    font-size: 14px;
+    color: #aab6ca;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #050914;
+    color: #8492a8;
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 140px 7% 70px;
+    }
+
+    .profile {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 70px 7%;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+@media(max-width: 400px) {
+    nav a {
+        margin-left: 6px;
+        font-size: 11px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="logo">Ihsan<span style="color:white">.</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">Tentang</a>
+        <a href="#info">Profil</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+
+    <div class="hero-text">
+        <div class="label">✦ STUDENT PORTFOLIO</div>
+
+        <h1>
+            Halo, Saya<br>
+            <span>Ihsan Adyan</span>
+        </h1>
+
+        <p>
+            Selamat datang di website pribadi saya.
+            Saya adalah mahasiswa yang memiliki semangat
+            untuk belajar, berkembang, dan mengenal lebih
+            dalam dunia teknologi informasi.
+        </p>
+
+        <a href="#about" class="btn">
+            Kenali Saya →
+        </a>
+    </div>
+
+    <div class="profile">
+        <div class="avatar">IA</div>
+
+        <h2>Ihsan Adyan</h2>
+
+        <p>Mahasiswa | 242011004</p>
+
+        <br>
+
+        <div class="label">✦ Future Tech Enthusiast</div>
+    </div>
+
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <h2 class="section-title">
+        Tentang Saya
+    </h2>
+
+    <p class="section-desc">
+        Sedikit cerita tentang perjalanan saya.
+    </p>
+
+    <div class="about-card">
+
+        <p>
+            Halo! Perkenalkan, nama saya Ihsan Adyan.
+            Saya merupakan seorang mahasiswa dengan NIM 242011004
+            yang sedang menempuh pendidikan di perguruan tinggi.
+        </p>
+
+        <p>
+            Saya memiliki ketertarikan terhadap dunia teknologi,
+            khususnya pemrograman, pengembangan website, dan
+            perkembangan teknologi digital.
+        </p>
+
+        <p>
+            Bagi saya, belajar merupakan proses yang tidak pernah
+            berhenti. Saya ingin terus mengembangkan kemampuan,
+            mendapatkan pengalaman baru, dan menciptakan karya
+            yang bermanfaat bagi banyak orang.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PROFIL -->
+<section id="info">
+
+    <h2 class="section-title">
+        Informasi Profil
+    </h2>
+
+    <p class="section-desc">
+        Informasi singkat mengenai identitas saya.
+    </p>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <div class="icon">🎓</div>
+            <h3>Status</h3>
+            <p>Mahasiswa</p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">🪪</div>
+            <h3>Nama</h3>
+            <p>Ihsan Adyan</p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">💻</div>
+            <h3>NIM</h3>
+            <p>242011004</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Ihsan Adyan | Student Portfolio</p>
+    <p>Designed with creativity and passion.</p>
+</footer>
+
+</body>
+</html>
